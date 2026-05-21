@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="hotel_healthcare">
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+    <physics type="ode"><max_step_size>0.002</max_step_size><real_time_update_rate>500</real_time_update_rate></physics>
+    <plugin name="hotel_gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>20.0</update_rate>
+    </plugin>
+
+    <model name="hotel_floor_plan">
+      <static>true</static>
+      <link name="structure">
+        <visual name="floor"><pose>2.7 0 0.011 0 0 0</pose><geometry><box><size>10.4 7.4 0.02</size></box></geometry><material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.62 0.64 0.66 1</diffuse></material></visual>
+        <visual name="corridor_carpet"><pose>2.7 0 0.025 0 0 0</pose><geometry><box><size>9.6 1.35 0.025</size></box></geometry><material><ambient>0.08 0.18 0.28 1</ambient><diffuse>0.08 0.18 0.28 1</diffuse></material></visual>
+
+        <visual name="north_wall"><pose>2.7 3.7 1.1 0 0 0</pose><geometry><box><size>10.4 0.12 2.2</size></box></geometry><material><ambient>0.76 0.77 0.74 1</ambient></material></visual>
+        <collision name="north_wall_col"><pose>2.7 3.7 1.1 0 0 0</pose><geometry><box><size>10.4 0.12 2.2</size></box></geometry></collision>
+        <visual name="south_wall"><pose>2.7 -3.7 1.1 0 0 0</pose><geometry><box><size>10.4 0.12 2.2</size></box></geometry><material><ambient>0.76 0.77 0.74 1</ambient></material></visual>
+        <collision name="south_wall_col"><pose>2.7 -3.7 1.1 0 0 0</pose><geometry><box><size>10.4 0.12 2.2</size></box></geometry></collision>
+        <visual name="west_wall"><pose>-2.5 0 1.1 0 0 0</pose><geometry><box><size>0.12 7.4 2.2</size></box></geometry><material><ambient>0.76 0.77 0.74 1</ambient></material></visual>
+        <collision name="west_wall_col"><pose>-2.5 0 1.1 0 0 0</pose><geometry><box><size>0.12 7.4 2.2</size></box></geometry></collision>
+        <visual name="east_wall"><pose>7.9 0 1.1 0 0 0</pose><geometry><box><size>0.12 7.4 2.2</size></box></geometry><material><ambient>0.76 0.77 0.74 1</ambient></material></visual>
+        <collision name="east_wall_col"><pose>7.9 0 1.1 0 0 0</pose><geometry><box><size>0.12 7.4 2.2</size></box></geometry></collision>
+
+        <visual name="room101_front_wall"><pose>2.125 -1.35 1.1 0 0 0</pose><geometry><box><size>2.25 0.08 2.2</size></box></geometry><material><ambient>0.72 0.73 0.70 1</ambient></material></visual>
+        <collision name="room101_front_wall_col"><pose>2.125 -1.35 1.1 0 0 0</pose><geometry><box><size>2.25 0.08 2.2</size></box></geometry></collision>
+        <visual name="room102_wall_left"><pose>4.55 -1.35 1.1 0 0 0</pose><geometry><box><size>0.3 0.08 2.2</size></box></geometry><material><ambient>0.72 0.73 0.70 1</ambient></material></visual>
+        <collision name="room102_wall_left_col"><pose>4.55 -1.35 1.1 0 0 0</pose><geometry><box><size>0.3 0.08 2.2</size></box></geometry></collision>
+        <visual name="room102_wall_right"><pose>6.0 -1.35 1.1 0 0 0</pose><geometry><box><size>0.8 0.08 2.2</size></box></geometry><material><ambient>0.72 0.73 0.70 1</ambient></material></visual>
+        <collision name="room102_wall_right_col"><pose>6.0 -1.35 1.1 0 0 0</pose><geometry><box><size>0.8 0.08 2.2</size></box></geometry></collision>
+        <visual name="room302_wall_left"><pose>4.55 1.35 1.1 0 0 0</pose><geometry><box><size>0.3 0.08 2.2</size></box></geometry><material><ambient>0.72 0.73 0.70 1</ambient></material></visual>
+        <collision name="room302_wall_left_col"><pose>4.55 1.35 1.1 0 0 0</pose><geometry><box><size>0.3 0.08 2.2</size></box></geometry></collision>
+        <visual name="room302_wall_right"><pose>6.0 1.35 1.1 0 0 0</pose><geometry><box><size>0.8 0.08 2.2</size></box></geometry><material><ambient>0.72 0.73 0.70 1</ambient></material></visual>
+        <collision name="room302_wall_right_col"><pose>6.0 1.35 1.1 0 0 0</pose><geometry><box><size>0.8 0.08 2.2</size></box></geometry></collision>
+
+        <visual name="room101_door"><pose>2.0 -0.72 0.04 0 0 0</pose><geometry><box><size>0.85 0.18 0.04</size></box></geometry><material><ambient>0.15 0.50 0.32 1</ambient></material></visual>
+        <visual name="room102_door"><pose>5.2 -0.72 0.04 0 0 0</pose><geometry><box><size>0.85 0.18 0.04</size></box></geometry><material><ambient>0.9 0.58 0.12 1</ambient></material></visual>
+        <visual name="room302_door"><pose>5.2 0.72 0.04 0 0 0</pose><geometry><box><size>0.85 0.18 0.04</size></box></geometry><material><ambient>0.15 0.50 0.82 1</ambient></material></visual>
+
+        <visual name="pickup_marker"><pose>2.0 -2.1 0.055 0 0 0</pose><geometry><box><size>0.9 0.9 0.035</size></box></geometry><material><ambient>0.12 0.58 0.35 1</ambient></material></visual>
+        <visual name="delivery_marker"><pose>5.2 2.1 0.055 0 0 0</pose><geometry><box><size>0.9 0.9 0.035</size></box></geometry><material><ambient>0.10 0.36 0.85 1</ambient></material></visual>
+        <visual name="safety_zone_marker"><pose>2.1 0.7 0.05 0 0 0</pose><geometry><cylinder><radius>0.9</radius><length>0.025</length></cylinder></geometry><material><ambient>0.75 0.10 0.08 0.45</ambient><diffuse>0.75 0.10 0.08 0.45</diffuse></material></visual>
+        <visual name="route_1"><pose>0.6 0 0.06 0 0 0</pose><geometry><box><size>0.9 0.08 0.035</size></box></geometry><material><ambient>0.95 0.95 0.25 1</ambient></material></visual>
+        <visual name="route_2"><pose>1.5 -0.9 0.06 0 0 0.72</pose><geometry><box><size>1.4 0.08 0.035</size></box></geometry><material><ambient>0.95 0.95 0.25 1</ambient></material></visual>
+        <visual name="route_3"><pose>3.5 0 0.06 0 0 0</pose><geometry><box><size>2.8 0.08 0.035</size></box></geometry><material><ambient>0.95 0.95 0.25 1</ambient></material></visual>
+        <visual name="route_4"><pose>5.2 1.0 0.06 0 0 1.5708</pose><geometry><box><size>1.7 0.08 0.035</size></box></geometry><material><ambient>0.95 0.95 0.25 1</ambient></material></visual>
+      </link>
+    </model>
+
+    <model name="mission_props">
+      <static>true</static>
+      <link name="props">
+        <visual name="pickup_counter"><pose>2.0 -2.55 0.45 0 0 0</pose><geometry><box><size>0.9 0.35 0.9</size></box></geometry><material><ambient>0.55 0.35 0.22 1</ambient></material></visual>
+        <collision name="pickup_counter_col"><pose>2.0 -2.55 0.45 0 0 0</pose><geometry><box><size>0.9 0.35 0.9</size></box></geometry></collision>
+        <visual name="delivery_counter"><pose>5.2 2.55 0.45 0 0 0</pose><geometry><box><size>0.9 0.35 0.9</size></box></geometry><material><ambient>0.55 0.35 0.22 1</ambient></material></visual>
+        <collision name="delivery_counter_col"><pose>5.2 2.55 0.45 0 0 0</pose><geometry><box><size>0.9 0.35 0.9</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="medical_kit_pickup">
+      <static>false</static>
+      <pose>2.0 -2.55 0.96 0 0 0</pose>
+      <link name="kit">
+        <gravity>false</gravity>
+        <visual name="blue_box"><pose>0 0 0 0 0 0</pose><geometry><box><size>0.24 0.18 0.12</size></box></geometry><material><ambient>0.05 0.32 0.95 1</ambient><diffuse>0.05 0.32 0.95 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="elevator_A">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="car">
+        <visual name="floor_marker"><pose>0 0 0.065 0 0 0</pose><geometry><box><size>1.35 1.35 0.045</size></box></geometry><material><ambient>0.1 0.3 0.9 1</ambient><diffuse>0.1 0.3 0.9 1</diffuse></material></visual>
+        <collision name="floor_marker_col"><pose>0 0 0.065 0 0 0</pose><geometry><box><size>1.35 1.35 0.045</size></box></geometry></collision>
+        <visual name="back_wall"><pose>-0.68 0 1 0 0 0</pose><geometry><box><size>0.08 1.35 2.0</size></box></geometry><material><ambient>0.48 0.50 0.52 1</ambient></material></visual>
+        <collision name="back_wall_col"><pose>-0.68 0 1 0 0 0</pose><geometry><box><size>0.08 1.35 2.0</size></box></geometry></collision>
+        <visual name="left_door_open"><pose>0.03 0.82 1 0 0 0</pose><geometry><box><size>0.08 0.06 2.0</size></box></geometry><material><ambient>0.82 0.84 0.86 1</ambient></material></visual>
+        <collision name="left_door_open_col"><pose>0.03 0.82 1 0 0 0</pose><geometry><box><size>0.08 0.06 2.0</size></box></geometry></collision>
+        <visual name="right_door_open"><pose>0.03 -0.82 1 0 0 0</pose><geometry><box><size>0.08 0.06 2.0</size></box></geometry><material><ambient>0.82 0.84 0.86 1</ambient></material></visual>
+        <collision name="right_door_open_col"><pose>0.03 -0.82 1 0 0 0</pose><geometry><box><size>0.08 0.06 2.0</size></box></geometry></collision>
+        <visual name="panel"><pose>0.62 -0.48 1 0 0 0</pose><geometry><box><size>0.05 0.22 0.8</size></box></geometry><material><ambient>0.04 0.04 0.04 1</ambient></material></visual>
+        <collision name="panel_col"><pose>0.62 -0.48 1 0 0 0</pose><geometry><box><size>0.05 0.22 0.8</size></box></geometry></collision>
+        <visual name="panel_light"><pose>0.65 -0.48 1.2 0 0 0</pose><geometry><sphere><radius>0.045</radius></sphere></geometry><material><ambient>0.0 0.9 0.25 1</ambient></material></visual>
+      </link>
+    </model>
+
+    <model name="guest_crossing">
+      <static>true</static>
+      <pose>2.1 0.7 0 0 0 -1.5708</pose>
+      <link name="person">
+        <visual name="standing_human">
+          <pose>0 0 0.02 0.04 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://gazebo_models/person_standing/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="standing_human_footprint">
+          <pose>0 -0.1 0.9 0 0 0</pose>
+          <geometry>
+            <box><size>0.5 0.35 1.8</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+  </world>
+</sdf>

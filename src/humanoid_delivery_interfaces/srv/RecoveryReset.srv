@@ -1,0 +1,7 @@
+string robot_id
+string fault_code
+bool clear_estop
+---
+bool reset
+string next_state
+string message

@@ -1,0 +1,27 @@
+# ROS 2 / colcon build output
+build/
+install/
+log/
+
+# Runtime debug output and recordings
+debug/
+.ros/
+*.bag
+*.db3
+*.mcap
+
+# Python caches and packaging output
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editor and OS noise
+.vscode/
+.idea/
+*~
+.DS_Store

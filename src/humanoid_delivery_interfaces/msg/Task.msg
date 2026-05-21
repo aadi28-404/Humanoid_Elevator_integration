@@ -1,0 +1,10 @@
+std_msgs/Header header
+string mission_id
+string robot_id
+string pickup_room
+string delivery_room
+int32 pickup_floor
+int32 delivery_floor
+string item_id
+uint8 priority
+string status

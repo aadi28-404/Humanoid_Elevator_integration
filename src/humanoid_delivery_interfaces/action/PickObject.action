@@ -1,0 +1,9 @@
+string object_id
+string source_room
+geometry_msgs/Pose grasp_hint
+---
+bool success
+string message
+---
+string phase
+float32 progress

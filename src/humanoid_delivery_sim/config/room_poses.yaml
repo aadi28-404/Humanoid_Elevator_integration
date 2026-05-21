@@ -1,0 +1,8 @@
+rooms:
+  "pickup": {x: 2.05, y: -1.95, floor: 1, chain_key: "pickup", arrival_m: 0.28}
+  "elevator": {x: 0.55, y: 0.00, floor: 1, chain_key: "elevator", arrival_m: 0.25}
+  "101": {x: 2.05, y: -1.95, floor: 1, chain_key: "room_101", arrival_m: 0.25}
+  "102": {x: 5.2, y: -1.90, floor: 1, chain_key: "room_102", arrival_m: 0.25}
+  "201": {x: 2.0, y: 1.90, floor: 2, chain_key: "room_201", arrival_m: 0.25}
+  "302": {x: 5.2, y: 1.90, floor: 3, chain_key: "room_302", arrival_m: 0.25}
+  "start": {x: 0.85, y: 0.00, floor: 1, chain_key: "start", arrival_m: 0.20}

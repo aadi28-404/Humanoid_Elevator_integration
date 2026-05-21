@@ -1,0 +1,9 @@
+std_msgs/Header header
+string lift_id
+int32 current_floor
+int32 target_floor
+string door_state
+string motion_state
+string reserved_by
+string mode
+string[] waiting_robot_ids

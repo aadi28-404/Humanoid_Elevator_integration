@@ -1,0 +1,7 @@
+string robot_id
+float32 battery_percent
+---
+bool accepted
+string charger_id
+string dock_pose_name
+uint32 eta_sec

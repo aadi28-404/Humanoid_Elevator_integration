@@ -1,0 +1,10 @@
+std_msgs/Header header
+string robot_id
+string mode
+string mission_id
+int32 floor
+float32 battery_percent
+bool emergency_stop
+bool localized
+bool holding_item
+string fault_code

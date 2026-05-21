@@ -1,0 +1,7 @@
+string lift_id
+int32 floor
+float32 min_width_m
+---
+bool is_open
+float32 measured_width_m
+string evidence

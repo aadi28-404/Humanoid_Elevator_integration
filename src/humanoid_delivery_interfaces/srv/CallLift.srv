@@ -1,0 +1,10 @@
+string robot_id
+string lift_id
+int32 from_floor
+int32 to_floor
+uint8 priority
+---
+bool accepted
+string reservation_id
+uint32 eta_sec
+string message

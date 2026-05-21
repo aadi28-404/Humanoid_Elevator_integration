@@ -55,6 +55,21 @@ ros2 service call /assign_mission humanoid_delivery_interfaces/srv/MissionAssign
 "{robot_id: humanoid_1, pickup_room: '101', delivery_room: '302', pickup_floor: 1, delivery_floor: 3, item_id: med_kit, priority: 8}"
 ```
 
+## Demo Video
+
+- Final demo and key mission recording: [media/demo.webm](media/demo.webm)
+
+## Development Error Images
+
+The screenshots below show errors encountered during development. They are not demo key moments.
+
+- Image index: [media/README.md](media/README.md)
+
+- Global joint axis / transform mismatch: ![global_joint_error](media/global_joint_error.png)
+- Joint limit / pose tuning issue 1: ![joint_limit_error_1](media/joint_limit_error_1.png)
+- Joint limit / pose tuning issue 2: ![joint_limit_error_2](media/joint_limit_error_2.png)
+- Wall collision/property error: ![wall_stuck_error](media/wall_stuck_error.png)
+
 ## Run Without Gazebo
 
 ```bash

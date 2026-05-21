@@ -23,6 +23,19 @@ I was not able to complete the third part to the same level of detail and implem
 
 This report summarizes what was achieved, how it was achieved, the major problems encountered, the fixes applied, and the specifications or resources still missing for a production-grade humanoid system.
 
+## Demo And Error Images
+
+The final demo and key mission artifact is:
+
+- Final demo video: `media/demo.webm`
+
+The remaining media files are error images captured during development:
+
+- Global joint-axis / transform mismatch (earlier iteration): `media/global_joint_error.png`
+- Joint limit / pose tuning error 1: `media/joint_limit_error_1.png`
+- Joint limit / pose tuning error 2: `media/joint_limit_error_2.png`
+- Wall collision/property error from an earlier simulation iteration: `media/wall_stuck_error.png`
+
 ## Original Assessment Scope
 
 The original goal was to design and implement core components for a humanoid robot that can:
@@ -240,9 +253,10 @@ The simulation was iteratively debugged using:
 
 | Problem | Cause | Solution |
 | --- | --- | --- |
-| Robot passed through or became stuck near walls | Early navigation route hints and obstacle representations did not match narrow world geometry well enough. | Added occupancy map behavior, wall bounds, route calibration, red-zone keepout, LiDAR clearance logic, safer approach routes, and tighter table/counter arrival behavior. |
+| Robot passed through, climbed, or became stuck on walls | Early wall collision/property setup and obstacle representation did not constrain the robot against the world geometry correctly. Evidence: `media/wall_stuck_error.png`. | Corrected wall and obstacle collision behavior, then added occupancy map behavior, wall bounds, route calibration, red-zone keepout, LiDAR clearance logic, safer approach routes, and tighter table/counter arrival behavior. |
 | Robot fell or became visually mangled during humanoid motion attempts | A planar base motion demo was combined with physically simulated uncontrolled humanoid joints and experimental joint animation without a real balance controller. | Returned to a stable fixed-pose demo baseline for the humanoid body and separated the architecture demonstration from unsupported full biped gait control. |
-| Limbs appeared detached or moved independently in earlier iterations | Robot state, Gazebo state overrides, kinematic link handling, and joint animation attempts conflicted. | Reduced conflicting pose/joint forcing and stabilized the robot model for whole-body navigation demonstration. |
+| Global joint-axis mismatch / detached limb visuals (earlier iteration) | The robot body heading and the joint visuals diverged due to conflicting transform sources (pose overrides vs. joint publishing) and Gazebo link handling during kinematic/joint experimentation. Evidence: `media/global_joint_error.png`. | Stabilized the model by reducing conflicting pose/joint forcing and converging on a single consistent joint-state publishing path for the demo. |
+| Joint limit / pose tuning errors (unresolved) | After addressing the global joint mismatch, the exact joint limit and neutral pose values for a realistic G1 gait were not fully verified/tuned within the assessment time. Evidence: `media/joint_limit_error_1.png`, `media/joint_limit_error_2.png`. | Left as a known limitation: the demo prioritizes mission orchestration (nav + lift + manipulation action flow) over production-quality biped locomotion control. |
 | Pickup looked false because the robot advanced without visibly carrying the box | The blue medical-kit state updates were not confirmed reliably in Gazebo. | Added Gazebo state-service based payload attachment confirmation before accepting pickup success. |
 | Box jumped to the delivery table while robot was still away from it | Delivery navigation succeeded at an old doorway standoff pose with a loose success threshold. | Changed room 302 delivery route to a table-side goal and tightened the room delivery threshold before the delivery action can execute. |
 | Human obstacle and planner disagreed | The visual human/safety marker was not fully represented in navigation occupancy behavior. | Placed the human inside the red safety circle and made the red circle an explicit navigation keepout. |
@@ -328,6 +342,7 @@ The repository includes:
 
 - Architecture documentation in `docs/architecture.md`.
 - Detailed engineering and debugging history in `docs/simulation_debug_report.md`.
+- Demo recording and debug screenshots in `media/` (see `media/README.md`).
 - ROS 2 interfaces in `src/humanoid_delivery_interfaces`.
 - Simulation nodes in `src/humanoid_delivery_sim`.
 - Elevator reservation logic.

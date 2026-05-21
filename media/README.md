@@ -4,7 +4,8 @@ This folder contains the final demo recording and error images referenced by the
 
 ## Demo
 
-- `demo.webm`: Final demo video and key mission recording showing the humanoid delivery behavior (navigation + pickup + elevator + delivery).
+- `demo2.mp4`: Final demo video and key mission recording shown from the repository README.
+- `demo.webm`: Original WebM export of the demo recording.
 
 ## Error Images
 

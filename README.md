@@ -57,7 +57,13 @@ ros2 service call /assign_mission humanoid_delivery_interfaces/srv/MissionAssign
 
 ## Demo Video
 
-- Final demo and key mission recording: [media/demo.webm](media/demo.webm)
+Final demo and key mission recording:
+
+<video src="./media/demo2.mp4" controls width="900">
+  <a href="./media/demo2.mp4">Play the MP4 demo video</a>
+</video>
+
+- MP4 demo link: [media/demo2.mp4](media/demo2.mp4)
 
 ## Development Error Images
 
